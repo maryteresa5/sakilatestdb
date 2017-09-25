@@ -1,0 +1,185 @@
+[1:05:49] pe :: pe2  ➜  ~ » mysql -u root p
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+[1:06:30] pe :: pe2  ➜  ~ » mysql -u root -p                                1 ↵
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 39
+Server version: 5.5.38-0ubuntu0.14.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create databse cses5;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databse cses5' at line 1
+mysql> create databse cses5;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databse cses5' at line 1
+mysql> create database cses5;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show tables;
+ERROR 1046 (3D000): No database selected
+mysql> show database
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> use cse5;
+ERROR 1049 (42000): Unknown database 'cse5'
+mysql> use cses5;
+Database changed
+mysql> create table student(id int not null primary key auto_increment, name varchar(10),dateofbirth date,address varchar(60),gender varchar(1),mobileno int);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc student
+    -> desc student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc student' at line 2
+mysql> desc student;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| id          | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name        | varchar(10) | YES  |     | NULL    |                |
+| dateofbirth | date        | YES  |     | NULL    |                |
+| address     | varchar(60) | YES  |     | NULL    |                |
+| gender      | varchar(1)  | YES  |     | NULL    |                |
+| mobileno    | int(11)     | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into student(name,dateofbirth,address,gender,mobileno)values('mary','1999-10-10','thrissur','f',9847293497);
+Query OK, 1 row affected, 1 warning (0.03 sec)
+
+mysql> insert into student(name,dateofbirth,address,gender,mobileno)values('maria','1999-03-06','thrissur','f',9847293494);
+Query OK, 1 row affected, 1 warning (0.04 sec)
+
+mysql> insert into student(name,dateofbirth,address,gender,mobileno)values('john','1997-03-06','thrissur','m',8847293494);
+Query OK, 1 row affected, 1 warning (0.03 sec)
+
+mysql> insert into student(name,dateofbirth,address,gender,mobileno)values('jacob','1997-04-05','thrissur','m',7847293494);
+Query OK, 1 row affected, 1 warning (0.03 sec)
+
+mysql> insert into student(name,dateofbirth,address,gender,mobileno)values('joseph','1997-09-15','thrissur','m',7847293499);
+Query OK, 1 row affected, 1 warning (0.03 sec)
+
+mysql> select * from student;
++----+--------+-------------+----------+--------+------------+
+| id | name   | dateofbirth | address  | gender | mobileno   |
++----+--------+-------------+----------+--------+------------+
+|  1 | mary   | 1999-10-10  | thrissur | f      | 2147483647 |
+|  2 | maria  | 1999-03-06  | thrissur | f      | 2147483647 |
+|  3 | john   | 1997-03-06  | thrissur | m      | 2147483647 |
+|  4 | jacob  | 1997-04-05  | thrissur | m      | 2147483647 |
+|  5 | joseph | 1997-09-15  | thrissur | m      | 2147483647 |
++----+--------+-------------+----------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> create table subject (subid int not null primary key auto_increment, sname varchar(20),maxmarks int);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc subject;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| subid    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| sname    | varchar(20) | YES  |     | NULL    |                |
+| maxmarks | int(11)     | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into subject (sname,maxmarks)values('theory of computation',100);
+Query OK, 1 row affected, 1 warning (0.03 sec)
+
+mysql> insert into subject (sname,maxmarks)values('graph theory ',100);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into subject (sname,maxmarks)values('data communication ',100);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into subject (sname,maxmarks)values('system software ',100);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into subject (sname,maxmarks)values('logic for computer science ',100);
+Query OK, 1 row affected, 1 warning (0.04 sec)
+
+mysql> insert into subject (sname,maxmarks)values('microprocessor ',100);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from subject;
++-------+----------------------+----------+
+| subid | sname                | maxmarks |
++-------+----------------------+----------+
+|     1 | theory of computatio |      100 |
+|     2 | graph theory         |      100 |
+|     3 | data communication   |      100 |
+|     4 | system software      |      100 |
+|     5 | logic for computer s |      100 |
+|     6 | microprocessor       |      100 |
++-------+----------------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> create table marks (studid int not null primary key auto_increment,sub1id,sub2id,sub3id,sub4id,sub5id,sub6id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sub2id,sub3id,sub4id,sub5id,sub6id)' at line 1
+mysql> create table marks (studid int not null primary key auto_increment,sub1id null,sub2id null,sub3id null,sub4id null,sub5id null,sub6id null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null,sub2id null,sub3id null,sub4id null,sub5id null,sub6id null)' at line 1
+mysql> create table marks (studid int not null primary key auto_increment,sub1id int,sub2id int,sub3id int,sub4id int,sub5id int,sub6id int);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc marks
+    -> desc marks;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc marks' at line 2
+mysql> desc marks;
++--------+---------+------+-----+---------+----------------+
+| Field  | Type    | Null | Key | Default | Extra          |
++--------+---------+------+-----+---------+----------------+
+| studid | int(11) | NO   | PRI | NULL    | auto_increment |
+| sub1id | int(11) | YES  |     | NULL    |                |
+| sub2id | int(11) | YES  |     | NULL    |                |
+| sub3id | int(11) | YES  |     | NULL    |                |
+| sub4id | int(11) | YES  |     | NULL    |                |
+| sub5id | int(11) | YES  |     | NULL    |                |
+| sub6id | int(11) | YES  |     | NULL    |                |
++--------+---------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> insert into marks(sub1id,sub2id,sub3id,sub4id,sub5id,sub6id)values(99,78,67,89,45,77);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into marks(sub1id,sub2id,sub3id,sub4id,sub5id,sub6id)values(69,72,56,83,85,71);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into marks(sub1id,sub2id,sub3id,sub4id,sub5id,sub6id)values(59,76,86,53,35,41);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into marks(sub1id,sub2id,sub3id,sub4id,sub5id,sub6id)values(55,46,71,43,75,49);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into marks(sub1id,sub2id,sub3id,sub4id,sub5id,sub6id)values(58,56,81,63,95,89);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from marks;
++--------+--------+--------+--------+--------+--------+--------+
+| studid | sub1id | sub2id | sub3id | sub4id | sub5id | sub6id |
++--------+--------+--------+--------+--------+--------+--------+
+|      1 |     99 |     78 |     67 |     89 |     45 |     77 |
+|      2 |     69 |     72 |     56 |     83 |     85 |     71 |
+|      3 |     59 |     76 |     86 |     53 |     35 |     41 |
+|      4 |     55 |     46 |     71 |     43 |     75 |     49 |
+|      5 |     58 |     56 |     81 |     63 |     95 |     89 |
++--------+--------+--------+--------+--------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select name from student join marks where student.id=marks.studid and marks.sub4id<50;
++-------+
+| name  |
++-------+
+| jacob |
++-------+
+1 row in set (0.00 sec)
+
+mysql> 
+
